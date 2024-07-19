@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wishlist</title>
+    <title>Lista de Desejos</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -15,29 +15,16 @@
                     <th>Nome</th>
                     <th>Marca</th>
                     <th>Preço</th>
-                   
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="produto : ${wishlist.produtos}">
+                <tr th:each="produto : ${produtos}">
                     <td th:text="${produto.nome}"></td>
                     <td th:text="${produto.marca}"></td>
                     <td th:text="${produto.preco}"></td>
-                    <td>
-                        <form th:action="@{/wishlist/{userId}/remove/{produtoId}(userId=${wishlist.userId}, produtoId=${produto.codigo})}" method="post">
-                            <button type="submit" class="btn btn-danger">Remover</button>
-                        </form>
-                    </td>
                 </tr>
             </tbody>
         </table>
-        <form th:action="@{/wishlist/{userId}/add/{produtoId}(userId=${wishlist.userId}, produtoId=${produtoId})}" method="post">
-            <div class="form-group">
-                <label for="produtoId">Adicionar Produto</label>
-                <input type="text" class="form-control" id="produtoId" name="produtoId" placeholder="ID do Produto">
-            </div>
-            <button type="submit" class="btn btn-primary">Adicionar</button>
-        </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
