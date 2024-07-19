@@ -1,9 +1,5 @@
-Backend Java Aplication 
-React  Consuming Application
-Postgres
+Backend Java  
 
-API de Spring Java consumida por uma
-aplicaçao react  de produtos
-Using Postgres as Database
-
+Desafio Magazine Luiza (Luizalabs)
+Aplicaçao Sping boot java com MongoDB(NOSQL)
 
