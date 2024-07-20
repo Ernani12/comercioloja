@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.ui.Model;
 
 
-
-@Controller
+  
+@Controller 
 public class ProdutoController {
 
     @Autowired
@@ -29,20 +29,20 @@ public class ProdutoController {
 
     @GetMapping("/")
     public String home() { 
-        return "redirect:/wishlist"; // Redireciona para o controlador de wishlist
+        return "redirect:/index"; // Redireciona para o controlador de wishlist
     }
 
-    @GetMapping("/wishlist")
-    public String getWishlist(Model model) {
+    @GetMapping("/index")
+    public String getListaProdutos(Model model) {
         model.addAttribute("produtos", PS.getAllProdutos());
-        return "wishlist"; // Retorna a view wishlist.html
-    }
-
+        return "index"; // Retorna a view wishlist.html
+    } 
+   
 
     @PostMapping("/cadastrarProduto")
     public ResponseEntity<?> cadastrar(@RequestBody Produto p) {
         return PS.cadastrar(p);
-    }
+    } 
      
     @PutMapping("/alterarProduto")
     public ResponseEntity<?> alterar(@RequestBody Produto p) {

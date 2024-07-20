@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Desejos</title>
+    <title>Lista de Produtos</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
 <body>
+    <div class="banner">
+        <img th:src="@{/images/magalu.png}" alt="Logo Magazine Luiza" class="logo">
+        <h1>Lista de Produtos Magazine</h1>
+    </div>
     <div class="container mt-5">
-        <h1>Lista de Desejos</h1>
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Nome</th>
                     <th>Marca</th>
                     <th>Preço</th>
+                    <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +27,7 @@
                     <td th:text="${produto.nome}"></td>
                     <td th:text="${produto.marca}"></td>
                     <td th:text="${produto.preco}"></td>
+                    <td><button class="btn btn-wishlist">Adicionar à Lista de Desejos</button></td>
                 </tr>
             </tbody>
         </table>
