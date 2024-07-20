@@ -13,6 +13,11 @@ public class ListaDesejosController {
 
     @Autowired
     private ListaDesejosService listaDesejosService;
+ 
+    @GetMapping("/meusdesejos")
+    public String mostrarListaDesejos() {
+        return "listadesejos";
+    }
 
     @GetMapping("/getListaDesejosPorClienteId")
     public ListaDesejos getListaDesejosPorClienteId(String clienteId) {
