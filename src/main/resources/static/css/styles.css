@@ -1,0 +1,36 @@
+body {
+    background-color: #f0f8ff; /* AliceBlue */
+}
+
+.banner {
+    background-color: #007bff; /* Azul */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    height: 150px; /* Definindo uma altura maior para o banner */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    height: 100px;
+    margin-right: 10px;
+    float:left;
+}
+
+.table thead {
+    background-color: #007bff; /* Azul */
+    color: white;
+}
+
+.btn-wishlist {
+    background-color: #007bff; /* Azul */
+    color: white;
+}
+
+.btn-wishlist:hover {
+    background-color: #0056b3; /* Azul escuro */
+    color: white;
+}

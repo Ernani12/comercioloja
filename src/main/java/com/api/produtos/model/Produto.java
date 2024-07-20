@@ -25,7 +25,7 @@ public class Produto {
 
     // Construtor sem parâmetros
     public Produto() {
-    }
+    } 
 
     public Produto(String nome, String marca, Double preco) {
         this.nome = nome;
