@@ -14,4 +14,7 @@ Html
 
 CSS
 
+![Magazine Luiza](src/main/resources/static/images)
+
+
 
