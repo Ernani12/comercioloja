@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Produtos</title>
+    <title>Lista de Desejos</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
 </head>
 <body>
     <div class="banner">
         <img th:src="@{/images/magalu.png}" alt="Logo Magazine Luiza" class="logo">
-        <h1>Lista de Produtos Magazine</h1>
+        <h1>Lista de Desejos</h1>
     </div>
     <div class="container mt-5">
         <table class="table table-striped">
@@ -27,13 +27,14 @@
                     <td th:text="${produto.nome}"></td>
                     <td th:text="${produto.marca}"></td>
                     <td th:text="${produto.preco}"></td>
-                    <td><button class="btn btn-wishlist">Adicionar à Lista de Desejos</button></td>
+                    <td>
+                        <form th:action="@{/clientes/{clienteId}/lista-desejos/produtos/{produtoId}/remover(clienteId=${clienteId}, produtoId=${produto.id})}" method="post">
+                            <button class="btn btn-danger" type="submit">Remover</button>
+                        </form>
+                    </td>
                 </tr>
             </tbody>
         </table>
-        <div class="mb-3">
-            <a th:href="@{/meusdesejos}" class="btn btn-primary">Ver Lista de Desejos</a>
-        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
