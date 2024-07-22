@@ -36,5 +36,6 @@ public class ListaDesejosController {
         listaDesejosService.removerProduto(codigo);
         return "redirect:/lista-desejos/meusdesejos";
     }
+
   
 }

@@ -3,10 +3,8 @@ package com.api.produtos.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.api.produtos.model.ListaDesejos;
 import com.api.produtos.model.Produto;
 import com.api.produtos.repository.ListaDesejosRepository;
@@ -46,6 +44,5 @@ public class ListaDesejosService {
             listaDesejosRepository.save(listaDesejos);
         }
     }
- 
     
 }
