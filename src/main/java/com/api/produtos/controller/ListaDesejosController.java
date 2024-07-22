@@ -17,10 +17,6 @@ public class ListaDesejosController {
     @Autowired
     private ListaDesejosService listaDesejosService;
  
-    @GetMapping("/mostrarpagina")
-    public String mostrarListaDesejos() {
-        return "listadesejos";
-    }
 
     @GetMapping("/meusdesejos")
     public String listarDesejos(Model model) {
