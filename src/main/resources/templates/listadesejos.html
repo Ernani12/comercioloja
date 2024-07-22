@@ -28,7 +28,7 @@
                     <td th:text="${produto.preco}"></td>
                     <td>
                         <form th:action="@{/lista-desejos/remover/{codigo}(codigo=${produto.codigo})}" method="post">
-                            <button class="btn btn-danger" type="submit">Remover</button>
+                            <button class="btn btn-danger" type="submit">X</button>
                         </form>
                     </td>
                 </tr>

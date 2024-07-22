@@ -3,11 +3,9 @@ package com.api.produtos.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import com.api.produtos.model.Produto;
 import com.api.produtos.service.ListaDesejosService;
 
 import org.springframework.ui.Model;
@@ -19,10 +17,6 @@ public class ListaDesejosController {
     @Autowired
     private ListaDesejosService listaDesejosService;
  
-    @GetMapping("/mostrarpagina")
-    public String mostrarListaDesejos() {
-        return "listadesejos";
-    }
 
     @GetMapping("/meusdesejos")
     public String listarDesejos(Model model) {
@@ -35,6 +29,7 @@ public class ListaDesejosController {
         listaDesejosService.adicionarProduto(codigo);
         return "redirect:/lista-desejos/meusdesejos";
     }
+
 
     @PostMapping("/remover/{codigo}")
     public String removerProduto(@PathVariable String codigo) {

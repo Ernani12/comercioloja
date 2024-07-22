@@ -3,7 +3,6 @@ package com.api.produtos.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,14 +40,11 @@ public class ListaDesejosService {
     }
 
     public void removerProduto(String codigo) {
-        ListaDesejos listaDesejos = listaDesejosRepository.findById("lista_unica")
-                .orElse(new ListaDesejos("lista_unica", new ArrayList<>()));
-        listaDesejos.setProdutos(
-            listaDesejos.getProdutos().stream()
-                .filter(produto -> !produto.getCodigo().equals(codigo))
-                .collect(Collectors.toList())
-        );
-        listaDesejosRepository.save(listaDesejos);
+        ListaDesejos listaDesejos = listaDesejosRepository.findById("lista_unica").orElse(null);
+        if (listaDesejos != null) {
+            listaDesejos.getProdutos().removeIf(produto -> produto.getCodigo().equals(codigo));
+            listaDesejosRepository.save(listaDesejos);
+        }
     }
  
     
