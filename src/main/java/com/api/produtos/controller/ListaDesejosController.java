@@ -29,7 +29,7 @@ public class ListaDesejosController {
         listaDesejosService.adicionarProduto(codigo);
         return "redirect:/lista-desejos/meusdesejos";
     }
-
+ 
 
     @PostMapping("/remover/{codigo}")
     public String removerProduto(@PathVariable String codigo) {
