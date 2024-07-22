@@ -41,14 +41,11 @@ public class ListaDesejosService {
     }
 
     public void removerProduto(String codigo) {
-        ListaDesejos listaDesejos = listaDesejosRepository.findById("lista_unica")
-                .orElse(new ListaDesejos("lista_unica", new ArrayList<>()));
-        listaDesejos.setProdutos(
-            listaDesejos.getProdutos().stream()
-                .filter(produto -> !produto.getCodigo().equals(codigo))
-                .collect(Collectors.toList())
-        );
-        listaDesejosRepository.save(listaDesejos);
+        ListaDesejos listaDesejos = listaDesejosRepository.findById("lista_unica").orElse(null);
+        if (listaDesejos != null) {
+            listaDesejos.getProdutos().removeIf(produto -> produto.getCodigo().equals(codigo));
+            listaDesejosRepository.save(listaDesejos);
+        }
     }
  
     

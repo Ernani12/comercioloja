@@ -7,19 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.w3c.dom.css.Counter;
-
 import java.util.Arrays;
-import java.util.List;
 
 @Configuration
 public class DataInitializer {
 
     @Autowired
     private ProdutoRepository produtoRepository;
-
-    
-
 
     @Bean
     public CommandLineRunner initData() {
