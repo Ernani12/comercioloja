@@ -1,5 +1,10 @@
 package com.api.produtos.service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,30 +15,41 @@ import com.api.produtos.repository.ProdutoRepository;
 
 @Service
 public class ListaDesejosService {
-
+  
     @Autowired
     private ListaDesejosRepository listaDesejosRepository;
 
     @Autowired
     private ProdutoRepository produtoRepository;
 
-    public ListaDesejos getListaDesejosPorClienteId(String clienteId) {
-        return listaDesejosRepository.findByClienteId(clienteId).orElse(new ListaDesejos(clienteId));
+    public List<Produto> listarDesejos() {
+        ListaDesejos listaDesejos = listaDesejosRepository.findById("lista_unica").orElse(new ListaDesejos());
+        System.out.print("listado lista desejos");
+        return listaDesejos.getProdutos();
     }
 
-    public ListaDesejos adicionarProduto(String clienteId, String produtoId) {
-        ListaDesejos listaDesejos = getListaDesejosPorClienteId(clienteId);
-        Produto produto = produtoRepository.findById(produtoId).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
-        listaDesejos.addProduto(produto);
-        return listaDesejosRepository.save(listaDesejos);
+    public void adicionarProduto(String codigo) {
+        Optional<Produto> produto = produtoRepository.findById(codigo);
+        if (produto.isPresent()) {
+            ListaDesejos listaDesejos = listaDesejosRepository.findById("lista_unica").orElse(new ListaDesejos("lista_unica", new ArrayList<>()));
+            if (listaDesejos.getProdutos() == null) {
+                listaDesejos.setProdutos(new ArrayList<>());
+            }
+            listaDesejos.getProdutos().add(produto.get());
+            listaDesejosRepository.save(listaDesejos);
+        }
     }
 
-    public ListaDesejos removerProduto(String clienteId, String produtoId) {
-        ListaDesejos listaDesejos = getListaDesejosPorClienteId(clienteId);
-        Produto produto = produtoRepository.findById(produtoId).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
-        listaDesejos.getProdutos().remove(produto);
-        return listaDesejosRepository.save(listaDesejos);
+    public void removerProduto(String codigo) {
+        ListaDesejos listaDesejos = listaDesejosRepository.findById("lista_unica")
+                .orElse(new ListaDesejos("lista_unica", new ArrayList<>()));
+        listaDesejos.setProdutos(
+            listaDesejos.getProdutos().stream()
+                .filter(produto -> !produto.getCodigo().equals(codigo))
+                .collect(Collectors.toList())
+        );
+        listaDesejosRepository.save(listaDesejos);
     }
-
+ 
     
 }

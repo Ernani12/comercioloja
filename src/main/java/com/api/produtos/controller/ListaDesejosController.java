@@ -1,39 +1,45 @@
 package com.api.produtos.controller;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import com.api.produtos.model.ListaDesejos;
+
+import com.api.produtos.model.Produto;
 import com.api.produtos.service.ListaDesejosService;
 
+import org.springframework.ui.Model;
+
 @Controller
+@RequestMapping("/lista-desejos")
 public class ListaDesejosController {
 
     @Autowired
     private ListaDesejosService listaDesejosService;
  
-    @GetMapping("/meusdesejos")
+    @GetMapping("/mostrarpagina")
     public String mostrarListaDesejos() {
         return "listadesejos";
     }
 
-    @GetMapping("/getListaDesejosPorClienteId")
-    public ListaDesejos getListaDesejosPorClienteId(String clienteId) {
-        return listaDesejosService.getListaDesejosPorClienteId(clienteId);
+    @GetMapping("/meusdesejos")
+    public String listarDesejos(Model model) {
+        model.addAttribute("listad", listaDesejosService.listarDesejos());
+        return "listadesejos";
+    }
+ 
+    @PostMapping("/adicionar/{codigo}")
+    public String adicionarProduto(@PathVariable String codigo) {
+        listaDesejosService.adicionarProduto(codigo);
+        return "redirect:/lista-desejos/meusdesejos";
     }
 
-
-    @PostMapping("/adicionarP/{clienteId}/produtos/{produtoId}")
-    public ResponseEntity<ListaDesejos> adicionarProdutoAoDesejos(@PathVariable String clienteId, @PathVariable String produtoId) {
-        ListaDesejos listaDesejos = listaDesejosService.adicionarProduto(clienteId, produtoId);
-        return ResponseEntity.ok(listaDesejos);
+    @PostMapping("/remover/{codigo}")
+    public String removerProduto(@PathVariable String codigo) {
+        listaDesejosService.removerProduto(codigo);
+        return "redirect:/lista-desejos/meusdesejos";
     }
-
-    @DeleteMapping("/removerP/{clienteId}/produtos/{produtoId}")
-    public ResponseEntity<ListaDesejos> removerProdutoAoDesejos(@PathVariable String clienteId, @PathVariable String produtoId) {
-        ListaDesejos listaDesejos = listaDesejosService.removerProduto(clienteId, produtoId);
-        return ResponseEntity.ok(listaDesejos);
-    }
+  
 }

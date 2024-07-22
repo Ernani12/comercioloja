@@ -3,10 +3,12 @@ package com.api.produtos.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import java.util.HashSet;
-import java.util.Set;
 
-@Document(collection = "listas_desejos")
+import java.util.ArrayList;
+import java.util.List;
+
+
+@Document(collection = "lista_desejos")
 public class ListaDesejos {
 
     @Id
@@ -15,14 +17,20 @@ public class ListaDesejos {
     private String clienteId;
 
     @DBRef
-    private Set<Produto> produtos = new HashSet<>();
+    private List<Produto> produtos;
+
+    public ListaDesejos() {
+        this.produtos = new ArrayList<>();
+    }
 
     // Getters e Setters
-
-    public ListaDesejos() {}
-
     public ListaDesejos(String clienteId) {
         this.clienteId = clienteId;
+    }
+
+    public ListaDesejos(String id, List<Produto> produtos) {
+        this.id = id;
+        this.produtos = produtos;
     }
 
     public String getId() {
@@ -41,11 +49,11 @@ public class ListaDesejos {
         this.clienteId = clienteId;
     }
 
-    public Set<Produto> getProdutos() {
+    public List<Produto> getProdutos() {
         return produtos;
     }
 
-    public void setProdutos(Set<Produto> produtos) {
+    public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
     }
 

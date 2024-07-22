@@ -13,7 +13,6 @@ import org.springframework.data.annotation.Id;
 //lombok generate setters and getters abstract
 @Getter
 @Setter
-@AllArgsConstructor
 @Document(collection = "produtos")
 public class Produto {
 
@@ -22,15 +21,21 @@ public class Produto {
     private String nome;
     private String marca;
     private Double Preco;
+ 
 
-    // Construtor sem parâmetros
+     // Construtor sem parâmetros
     public Produto() {
     } 
-
-    public Produto(String nome, String marca, Double preco) {
+    
+    public Produto(String codigo, String nome, String marca, Double preco) {
+        this.codigo = codigo;
         this.nome = nome;
-        this.marca = marca;
+        this.marca = marca; 
         this.Preco = preco;
     }
+
+   
+
+ 
     
 }

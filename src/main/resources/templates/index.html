@@ -16,6 +16,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>Codigo</th>
                     <th>Nome</th>
                     <th>Marca</th>
                     <th>Preço</th>
@@ -24,19 +25,25 @@
             </thead>
             <tbody>
                 <tr th:each="produto : ${produtos}">
+                    <td th:text="${produto.codigo}"></td>
                     <td th:text="${produto.nome}"></td>
                     <td th:text="${produto.marca}"></td>
                     <td th:text="${produto.preco}"></td>
-                    <td><button class="btn btn-wishlist">Adicionar à Lista de Desejos</button></td>
+                    <td>
+                        <form th:action="@{/lista-desejos/adicionar/{codigo}(codigo=${produto.codigo})}" method="post">
+                            <button class="btn btn-primary" type="submit">Adicionar à Lista de Desejos</button>
+                        </form>
+                    </td>
                 </tr>
             </tbody>
         </table>
         <div class="mb-3">
-            <a th:href="@{/meusdesejos}" class="btn btn-primary">Ver Lista de Desejos</a>
+            <a th:href="@{/lista-desejos/mostrarpagina}" class="btn btn-primary">Ver Lista de Desejos</a>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
