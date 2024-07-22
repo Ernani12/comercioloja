@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-app
+  labels:
+    app: spring-boot-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spring-boot-app
+  template:
+    metadata:
+      labels:
+        app: spring-boot-app
+    spec:
+      containers:
+        - name: spring-boot-app
+          image: <YOUR_DOCKER_IMAGE> # Substitua pelo nome da sua imagem Docker
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATA_MONGODB_URI
+              value: "mongodb://mongo-service:27017/magazine" # Substitua pelo nome do banco de dados
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-boot-app
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: spring-boot-app
