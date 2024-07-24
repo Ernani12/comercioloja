@@ -22,6 +22,9 @@ public class ProdutoService {
     private ProdutoRepository PR;
    //list all products
 
+   public ProdutoService(ProdutoRepository produtoRepository) {
+    this.PR = produtoRepository;
+}
 
     public List<Produto> getAllProdutos() {
         return PR.findAll();

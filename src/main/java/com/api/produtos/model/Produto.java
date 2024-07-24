@@ -6,6 +6,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.UUID;
+
 import org.springframework.data.annotation.Id;
 
 
@@ -21,10 +24,10 @@ public class Produto {
     private String marca;
     private Double Preco;
  
-
-     // Construtor sem parâmetros
+      // Construtor sem parâmetros
     public Produto() {
-    } 
+        this.codigo = generateCustomId();
+    }
     
     public Produto(String codigo, String nome, String marca, Double preco) {
         this.codigo = codigo;
@@ -32,9 +35,19 @@ public class Produto {
         this.marca = marca; 
         this.Preco = preco;
     }
-
+    
    
+    public Produto(String nome, String marca, Double preco) {
+        this.nome = nome;
+        this.marca = marca;
+        Preco = preco;
+    }
 
+    private String generateCustomId() {
+        UUID uuid = UUID.randomUUID();
+        // Transformando UUID em string e pegando os primeiros 8 caracteres para maior legibilidade
+        return uuid.toString().substring(0, 2);
+    }
  
     
 }
