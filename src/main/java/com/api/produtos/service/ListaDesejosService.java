@@ -19,6 +19,9 @@ public class ListaDesejosService {
     @Autowired
     private ProdutoRepository produtoRepository;
 
+    private static final int MAX_SIZE = 20;
+
+
     public List<Produto> listarDesejos() {
         ListaDesejos listaDesejos = listaDesejosRepository.findById("lista_unica").orElse(new ListaDesejos());
         System.out.print("listado lista desejos");
@@ -29,6 +32,11 @@ public class ListaDesejosService {
         Optional<Produto> produto = produtoRepository.findById(codigo);
         if (produto.isPresent()) {
             ListaDesejos listaDesejos = listaDesejosRepository.findById("lista_unica").orElse(new ListaDesejos("lista_unica", new ArrayList<>()));
+
+            if (listaDesejos.getProdutos().size() >= MAX_SIZE) {
+                throw new IllegalStateException("A lista de desejos atingiu o limite máximo de " + MAX_SIZE + " produtos.");
+            }
+
             if (listaDesejos.getProdutos() == null) {
                 listaDesejos.setProdutos(new ArrayList<>());
             }

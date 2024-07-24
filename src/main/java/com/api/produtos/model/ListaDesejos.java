@@ -23,6 +23,8 @@ public class ListaDesejos {
         this.produtos = new ArrayList<>();
     }
 
+    
+
     // Getters e Setters
     public ListaDesejos(String clienteId) {
         this.clienteId = clienteId;
