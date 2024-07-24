@@ -16,6 +16,7 @@ public class ListaDesejos {
     
     private String clienteId;
 
+
     @DBRef
     private List<Produto> produtos;
 

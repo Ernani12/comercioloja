@@ -35,3 +35,97 @@ body {
     color: white;
 }
 
+
+/* Menu CSS */
+.navbar {
+    position: relative;
+    width: 100%;
+    background-color: #120fd2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar-nav {
+    margin-left: 0;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 25px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0056b3;
+    transform: scale(1.1);
+}
+
+.navbar-nav .nav-logout {
+    color: #ffffff !important;
+    background-color: #dc3545;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-nav .nav-logout:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+
+/* Banner CSS */
+.banner {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.banner .logo {
+    max-width: 200px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+/* Banner CSS */
+.banner {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.banner .logo {
+    max-width: 200px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+/* Botão Voltar */
+.btn-back {
+    background-color: #dc3545;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
