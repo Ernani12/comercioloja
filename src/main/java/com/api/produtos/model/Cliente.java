@@ -1,7 +1,10 @@
 package com.api.produtos.model;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "clientes")
 public class Cliente {
@@ -10,6 +13,15 @@ public class Cliente {
     private String id;
     private String nome;
     private String email;
+
+      @Field("password")
+    private String password;
+
+ 
+
+    public void setRoleIds(List<String> roleIds) {
+        this.roleIds = roleIds;
+    }
 
     // Getters e Setters
 
@@ -43,4 +55,7 @@ public class Cliente {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Field("roles")
+    private List<String> roleIds; // Lista de IDs dos papéis (Roles)
 }
