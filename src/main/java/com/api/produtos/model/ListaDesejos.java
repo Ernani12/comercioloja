@@ -16,15 +16,14 @@ public class ListaDesejos {
     
     private String clienteId;
 
-    private static final int MAX_SIZE = 20;
-
-
     @DBRef
     private List<Produto> produtos;
 
     public ListaDesejos() {
         this.produtos = new ArrayList<>();
     }
+
+    
 
     // Getters e Setters
     public ListaDesejos(String clienteId) {
