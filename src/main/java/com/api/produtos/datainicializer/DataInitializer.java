@@ -1,12 +1,16 @@
 package com.api.produtos.datainicializer;
 
 
+import com.api.produtos.model.Cliente;
 import com.api.produtos.model.Produto;
+import com.api.produtos.repository.ClienteRepository;
 import com.api.produtos.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import java.util.Arrays;
 
 @Configuration
@@ -14,6 +18,11 @@ public class DataInitializer {
 
     @Autowired
     private ProdutoRepository produtoRepository;
+
+    @Autowired
+    private ClienteRepository clienteRepository;
+
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Bean
     public CommandLineRunner initData() {
@@ -67,6 +76,20 @@ public class DataInitializer {
 
               
             }
+
+                // Verifica se a coleção de clientes já possui dados
+            
+                Cliente existingCliente = clienteRepository.findByEmail("magazine@example.com");
+                if (existingCliente != null) {
+                    // Cliente já existe, não faz nada
+                    return;
+                }
+                Cliente cliente = new Cliente();
+                cliente.setNome ("Luiza");
+                cliente.setEmail("magazine@example.com");
+                cliente.setPassword(passwordEncoder.encode("luiza"));
+                clienteRepository.save(cliente);
+            
         };
     }
 }

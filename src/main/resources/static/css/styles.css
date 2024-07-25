@@ -120,6 +120,7 @@ body {
     color: #ffffff;
     border-radius: 5px;
     padding: 10px 20px;
+    margin-top: 10px;
     font-size: 16px;
     border: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -170,6 +171,7 @@ body {
     display: block;
 }
 
+.login-page input[type="nome"],
 .login-page input[type="email"],
 .login-page input[type="password"] {
     padding: 10px;
@@ -209,4 +211,65 @@ body {
     color: #d9534f;
     font-size: 14px;
     margin-top: 15px;
+}
+
+form h2 {
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ef0d0d;
+}
+form label {
+    display: block;
+    margin-top: 0px;
+}
+form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 0px;
+}
+form button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+form button:hover {
+    background-color: #0056b3;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    display: none;
+    z-index: 10;
+}
+.tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+
+#search {
+    margin-top: 10px; /* Espaço acima do input */
+    margin-bottom: 20px; /* Espaço abaixo do input */
+    padding: 10px; /* Adiciona padding para o campo de input */
+    border-radius: 4px; /* Adiciona bordas arredondadas */
+    border: 1px solid #ced4da; /* Adiciona uma borda ao input */
 }
