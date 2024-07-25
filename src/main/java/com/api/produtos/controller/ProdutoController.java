@@ -12,7 +12,6 @@ import com.api.produtos.service.ProdutoService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.ui.Model;
 
 
@@ -29,8 +28,8 @@ public class ProdutoController {
     }
 
     @GetMapping("/")
-    public String home() { 
-        return "redirect:/login"; // Redireciona para o controlador de wishlist
+    public String home() {
+        return "redirect:/auth/login"; // Redireciona para a página de login
     }
 
     @GetMapping("/index")
