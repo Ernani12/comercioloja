@@ -14,10 +14,18 @@ public class Cliente {
     private String nome;
     private String email;
 
-      @Field("password")
+    @Field("password")
     private String password;
 
  
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public void setRoleIds(List<String> roleIds) {
         this.roleIds = roleIds;

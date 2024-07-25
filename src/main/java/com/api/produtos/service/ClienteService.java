@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.api.produtos.model.Cliente;
 import com.api.produtos.repository.ClienteRepository;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -14,6 +16,9 @@ public class ClienteService {
 
     @Autowired
     private ClienteRepository clienteRepository;
+
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
 
     public List<Cliente> getAllClientes() {
         return clienteRepository.findAll();
@@ -37,5 +42,25 @@ public class ClienteService {
 
     public void deletarCliente(String id) {
         clienteRepository.deleteById(id);
+    }
+
+
+    public Cliente registerUser(String email, String password) {
+        if (clienteRepository.findByEmail(email) != null) {
+            throw new RuntimeException("E-mail já registrado");
+        }
+        Cliente user = new Cliente();
+        user.setEmail(email);
+        user.setPassword(passwordEncoder.encode(password));
+        return clienteRepository.save(user);
+    }
+
+    public Cliente loginUser(String email, String password) {
+        Cliente user = clienteRepository.findByEmail(email);
+        if (user != null && passwordEncoder.matches(password, user.getPassword())) {
+            return user;
+        } else {
+            throw new RuntimeException("Credenciais inválidas");
+        }
     }
 }
