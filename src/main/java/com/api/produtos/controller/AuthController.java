@@ -48,7 +48,7 @@ public class AuthController {
         return "redirect:/auth/login"; // Redireciona para a página de login
     }
 
-    @GetMapping("/log")
+    @GetMapping("/login")
     public String login() {
         return "login"; // Retorna o template de login
     }
