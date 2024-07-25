@@ -64,4 +64,9 @@ public class AuthController {
     public String home() {
         return "redirect:/auth/login"; // Redireciona para a página de login
     }
+
+    @GetMapping("/carrinho")
+    public String cartPage() {
+        return "confirmacao"; // Retorna o template do carrinho
+    }
 }

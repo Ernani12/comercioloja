@@ -49,9 +49,48 @@
                 </tr>
             </tfoot>
         </table>
+
+         <!-- Formulário para confirmação da lista e escolha do método de pagamento -->
+         <form id="payment-form" action="/confirmacao" method="get">
+            <div class="form-group">
+                <label>Selecione o método de pagamento:</label><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="credit-card" value="Cartao Credito" checked>
+                    <label class="form-check-label" for="credit-card">
+                        Cartão de Crédito
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="paypal" value="Debito">
+                    <label class="form-check-label" for="paypal">
+                        Debito
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="bank-transfer" value="pix">
+                    <label class="form-check-label" for="bank-transfer">
+                        PIX
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="bank-transfer" value="boleto">
+                    <label class="form-check-label" for="bank-transfer">
+                        Boleto
+                    </label>
+                </div>
+            </div>
+            <a th:href="@{/auth/carrinho}" class="btn btn-primary" onclick="getPaymentMethod()">Confirmar pedido</a>
+        </form>
+    </div>
     </div>
 
- 
+    <script>
+        function getPaymentMethod() {
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+            alert('Método de Pagamento Selecionado: ' + paymentMethod);
+            this.action = `/confirmacao?paymentMethod=${encodeURIComponent(paymentMethod)}`;
+        }
+    </script>
     <!-- Incluindo o script JavaScript -->
     <script src="/js/search.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
