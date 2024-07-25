@@ -129,3 +129,84 @@ body {
     background-color: #c82333;
     transform: scale(1.05);
 }
+
+/* Estilos específicos para a página de login e registro */
+.login-page {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-page .container {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-page h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.login-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-page label {
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    display: block;
+}
+
+.login-page input[type="email"],
+.login-page input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 94%;
+}
+
+.login-page button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.login-page button:hover {
+    background-color: #0056b3;
+}
+
+.login-page a {
+    display: block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-page a:hover {
+    text-decoration: underline;
+}
+
+.login-page .error {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 15px;
+}
