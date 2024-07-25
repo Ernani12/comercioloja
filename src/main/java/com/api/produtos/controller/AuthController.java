@@ -17,9 +17,9 @@ public class AuthController {
     private ClienteService clienteService;
 
     @PostMapping("/register")
-    public String register(@RequestParam String email, @RequestParam String password, Model model) {
+    public String register(@RequestParam String email, @RequestParam String password, @RequestParam String nome, Model model) {
         try {
-            clienteService.registerUser(email, password);
+            clienteService.registerUser(email, password,nome);
             return "redirect:/auth/login"; // Redireciona para a página de login após registro bem-sucedido
         } catch (RuntimeException e) {
             model.addAttribute("error", e.getMessage()); // Adiciona a mensagem de erro ao modelo

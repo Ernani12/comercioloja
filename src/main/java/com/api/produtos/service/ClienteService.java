@@ -45,11 +45,12 @@ public class ClienteService {
     }
 
 
-    public Cliente registerUser(String email, String password) {
+    public Cliente registerUser(String email, String password, String nome) {
         if (clienteRepository.findByEmail(email) != null) {
             throw new RuntimeException("E-mail já registrado");
         }
         Cliente user = new Cliente();
+        user.setNome(nome);
         user.setEmail(email);
         user.setPassword(passwordEncoder.encode(password));
         return clienteRepository.save(user);

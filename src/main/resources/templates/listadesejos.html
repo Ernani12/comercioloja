@@ -33,7 +33,7 @@
                     <td th:text="${produto.codigo}"></td>
                     <td th:text="${produto.nome}"></td>
                     <td th:text="${produto.marca}"></td>
-                    <td th:text="${produto.preco}"></td>
+                    <td class="price" th:text="${produto.preco}"></td>
                     <td>
                         <form th:action="@{/lista-desejos/remover/{codigo}(codigo=${produto.codigo})}" method="post">
                             <button class="btn btn-danger" type="submit">X</button>
@@ -41,6 +41,13 @@
                     </td>
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right"><strong>Total:</strong></td>
+                    <td id="total-price">R$ 0,00</td>
+                    <td></td>
+                </tr>
+            </tfoot>
         </table>
     </div>
 
@@ -50,5 +57,22 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Função para calcular o total
+        function calculateTotal() {
+            let total = 0;
+            document.querySelectorAll('.price').forEach(function(priceElement) {
+                let priceText = priceElement.textContent.trim().replace('R$', '').replace(',', '.');
+                let priceValue = parseFloat(priceText);
+                if (!isNaN(priceValue)) {
+                    total += priceValue;
+                }
+            });
+            document.getElementById('total-price').textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+        }
+
+        // Calcula o total quando a página carrega
+        document.addEventListener('DOMContentLoaded', calculateTotal);
+    </script>
 </body>
 </html>
