@@ -19,7 +19,7 @@ CSS
 
 5 - Utilize o email : magazine@example.com 
 
-e senha:  luiza   par fazer o login (usuario padrao)
+e senha: luiza    para fazer o login (usuario padrao)
 
 6- Voce pode cadastrar um (clinete) usuario caso quiser
 
