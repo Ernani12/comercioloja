@@ -21,17 +21,18 @@ CSS
 
 e senha: luiza    para fazer o login (usuario padrao)
 
-6- Voce pode cadastrar um (clinete) usuario caso quiser
+6- Voce pode cadastrar um (cliente) usuario caso quiser
 
 
 
 
-
+---------------------------------------------------------------------------------------------------------------------------------------
 
 ---------------------(OPCIONAL SonarCloud) -----------------
+
 1- https://sonarcloud.io  crie uma conta 
 
-2- crie um noco projeto 
+2- crie um novo projeto 
 
 3- seleciona o projeto em seu github ou gitlab
 
