@@ -23,6 +23,8 @@ e senha: luiza    para fazer o login (usuario padrao)
 
 6- Voce pode cadastrar um (cliente) usuario caso quiser
 
+(pcional)  Caso necessario crie um banco no mongo chamado magazine com colecao produtos
+
 na pagina de produtos  voce pode adicionar um produto a Lista de desejos
 
 na lista de desejos http://localhost:8080/lista-desejos/meusdesejos
