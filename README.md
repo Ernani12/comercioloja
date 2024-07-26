@@ -23,8 +23,29 @@ e senha: luiza    para fazer o login (usuario padrao)
 
 6- Voce pode cadastrar um (cliente) usuario caso quiser
 
+na pagina de produtos  voce pode adicionar um produto a Lista de desejos
+
+na lista de desejos http://localhost:8080/lista-desejos/meusdesejos
+
+voce pode clicar em  X para remover um produto
+
+Pode tambem selecionar a forma de Pagamento e concluir 
 
 
+--------------------------------------------------------------------------------------------------------------------------------------
+Mesmo com recussos do Spring Security, Login, Password(senha)
+
+As rotas estao liberadas para teste de Rest
+
+http://localhost:8080/index   (pagina inicial)
+
+http://localhost:8080/lista-desejos/meusdesejos (lista de Desejos Wishlis)
+
+http://localhost:8080/auth/carrinho (compra com sucesso)
+
+http://localhost:8080/auth/login  (login)
+
+http://localhost:8080/auth/register (registro)
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
