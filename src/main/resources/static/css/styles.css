@@ -273,3 +273,14 @@ form button:hover {
     border-radius: 4px; /* Adiciona bordas arredondadas */
     border: 1px solid #ced4da; /* Adiciona uma borda ao input */
 }
+
+body.login-page {
+    margin: 0;
+    padding: 0;
+    background: url('/images/Magaluf.jpg') no-repeat center center fixed; /* Imagem de fundo */
+    background-size: cover; /* Faz com que a imagem cubra toda a área */
+    color: #fff; /* Define a cor do texto */
+    font-family: Arial, sans-serif; /* Define a fonte padrão */
+    position: relative; /* Permite o posicionamento absoluto dentro do body */
+}
+/* Estilo para a imagem no lado esquerdo */
