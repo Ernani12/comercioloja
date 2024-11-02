@@ -1,76 +1,100 @@
-Backend Java  
-Desafio Magazine Luiza (Luizalabs)
-Aplicaçao Speing boot java com MongoDB(NOSQL)
-Java
-Spring Boot(Dev Tools, Mongo, Liveload(starter)
-Mongo (NOSql)
-Html
-CSS
+# Desafio Magazine Luiza (Luizalabs)
 
-------------------------------Passos------------------------
+## Aplicação Spring Boot com MongoDB (NoSQL)
 
-1- Installar Java 17
+### Tecnologias Utilizadas
 
-2- Installar Mongo
+- **Java 17**
+- **Spring Boot**
+- **MongoDB**
+- **Apache Maven (opcional)**
+- **HTML**
+- **CSS**
 
-3- instale apache maven (opcional)
+---
 
-4- rode ou execute:  mvn spring-boot:run 
+## Passos para Configuração
 
-5 - Utilize o email : magazine@example.com 
+### 1. Instalação do Java 17
 
-e senha: luiza    para fazer o login (usuario padrao)
+Certifique-se de que o Java 17 esteja instalado em seu sistema. Você pode baixar o Java [aqui](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html).
 
-6- Voce pode cadastrar um (cliente) usuario caso quiser
+### 2. Instalação do MongoDB
 
-(opcional)  Caso necessario crie um banco no mongo chamado magazine com colecao produtos
+Baixe e instale o MongoDB a partir do site oficial: [MongoDB Download Center](https://www.mongodb.com/try/download/community).
 
-na pagina de produtos  voce pode adicionar um produto a Lista de desejos
+### 3. Instalação do Apache Maven (opcional)
 
-na lista de desejos http://localhost:8080/lista-desejos/meusdesejos
+Se você não possui o Apache Maven instalado, pode baixar a versão mais recente [aqui](https://maven.apache.org/download.cgi).
 
-voce pode clicar em  X para remover um produto
+### 4. Executar a Aplicação
 
-Pode tambem selecionar a forma de Pagamento e concluir 
+Após configurar o ambiente, execute o seguinte comando no terminal:
 
+```bash
+mvn spring-boot:run
+```
 
---------------------------------------------------------------------------------------------------------------------------------------
-Mesmo com recussos do Spring Security, Login, Password(senha)
+### 5. Credenciais de Login
 
-As rotas estao liberadas para teste de Rest
+Utilize as seguintes credenciais para fazer login na aplicação:
 
-http://localhost:8080/index   (pagina inicial)
+- **Email:** `magazine@example.com`
+- **Senha:** `luiza`
 
-http://localhost:8080/lista-desejos/meusdesejos (lista de Desejos Wishlis)
+### 6. Cadastro de Cliente (Opcional)
 
-http://localhost:8080/auth/carrinho (compra com sucesso)
+Você pode cadastrar um novo cliente caso deseje. Para isso, utilize a rota de registro.
 
-http://localhost:8080/auth/login  (login)
+---
 
-http://localhost:8080/auth/register (registro)
+## Estrutura do Banco de Dados
 
----------------------------------------------------------------------------------------------------------------------------------------
+Caso necessário, crie um banco no MongoDB chamado **magazine** com a coleção **produtos**.
 
----------------------(OPCIONAL SonarCloud) -----------------
+---
 
-1- https://sonarcloud.io  crie uma conta 
+## Rotas Disponíveis
 
-2- crie um novo projeto 
+| Rota                                          | Descrição                        |
+|-----------------------------------------------|----------------------------------|
+| `http://localhost:8080/index`                | Página inicial                   |
+| `http://localhost:8080/lista-desejos/meusdesejos` | Lista de Desejos (Wishlist)     |
+| `http://localhost:8080/auth/carrinho`       | Compra com sucesso               |
+| `http://localhost:8080/auth/login`           | Login                            |
+| `http://localhost:8080/auth/register`        | Registro                         |
 
-3- seleciona o projeto em seu github ou gitlab
+---
 
-4- Configure manual
+## Funcionalidades
 
-5- Crie a variavel de ambiente e adicione o sonarcloud ao pom.xml
+- **Adicionar Produto à Lista de Desejos:** Na página de produtos, você pode adicionar produtos à sua lista de desejos.
+- **Remover Produto da Lista de Desejos:** Na lista de desejos, clique em "X" para remover um produto.
+- **Selecionar Forma de Pagamento:** Você pode escolher a forma de pagamento e concluir a compra.
 
-6-  execute : mvn verify sonar:sonar
+### Segurança
 
-Retornara o relatario de dados da aplicaçao
-e voce vera que passa em qualidade 
+A aplicação utiliza recursos do Spring Security para gerenciar o login e a senha, mas as rotas estão liberadas para testes de API REST.
 
+---
 
+## (Opcional) SonarCloud
 
+1. Acesse [SonarCloud](https://sonarcloud.io) e crie uma conta.
+2. Crie um novo projeto.
+3. Selecione o projeto em seu GitHub ou GitLab.
+4. Configure manualmente.
+5. Crie a variável de ambiente e adicione o SonarCloud ao `pom.xml`.
+6. Execute o seguinte comando:
 
+```bash
+mvn verify sonar:sonar
+```
 
+Isso retornará um relatório de dados da aplicação, onde você poderá verificar a qualidade do código.
 
+---
 
+## Considerações Finais
+
+Sinta-se à vontade para explorar o código e fazer melhorias conforme necessário. Este projeto é uma ótima oportunidade para aprender sobre Spring Boot e MongoDB, além de desenvolver habilidades em segurança e gerenciamento de dependências.
